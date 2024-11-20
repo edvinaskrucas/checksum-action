@@ -1,0 +1,26 @@
+name: 'checksum-action'
+description: 'Generate checksums (SHA1) for multiple files'
+branding:
+  icon: 'activity'
+  color: 'black'
+inputs:
+  dir:
+    description: 'Root directory to calculate checksums'
+    required: false
+    default: '.'
+  output:
+    description: 'Output file to save checksums'
+    required: false
+    default: 'checksums.json'
+  ignore:
+    description: 'Comma-separated list of paths to ignore (relative to root)'
+    required: false
+    default: ''
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '${{ inputs.dir }}'
+    - '${{ inputs.output }}'
+    - '${{ inputs.ignore }}'
