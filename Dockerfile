@@ -13,4 +13,4 @@ WORKDIR /app
 COPY --from=builder /src/dist/app ./app
 COPY entrypoint.sh ./entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
