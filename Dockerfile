@@ -8,6 +8,6 @@ RUN go build -a -installsuffix cgo -o /app ./main.go
 
 FROM alpine:3.20.3
 COPY --from=builder /app /app
-COPY entrypoint.sh /app/entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
